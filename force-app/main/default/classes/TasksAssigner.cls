@@ -8,9 +8,7 @@ public with sharing class TasksAssigner {
             SELECT Name FROM Account WHERE Id IN : ids
         ]);
         List<Account> accounts = accountsMap.values();
-        // Map<Id, Task> tasksMap = new Map<Id, Tasks>([
-        //     SELECT WhatId, OwnerId FROM Task
-        // ]);
+        
         List<Task> tasks = new List<Task>([
             SELECT WhatId, OwnerId FROM Task
         ]);
