@@ -24,7 +24,7 @@ public with sharing class TasksAssigner {
         }
         for(Id id : ids){
             if(idIntMap.get(id) != null){
-                if(idIntMap.get(id) >= 3){
+                if(idIntMap.get(id) > 3){
                     Id randomUserId = users.get((Integer)(Math.random()*(users.size() - 1))).Id;
                     for(Task task : tasks){
                         if(task.WhatId == id){
