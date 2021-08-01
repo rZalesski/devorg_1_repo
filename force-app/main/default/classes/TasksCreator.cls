@@ -9,7 +9,7 @@ public with sharing class TasksCreator {
         ]);
         List<Task> tasks = new List<Task>();
         for(Id accId : ids){
-            tasks.add(new Task(Subject = 'Negotiations with ' + accounts.get(accId), WhatId = accId));
+            tasks.add(new Task(Subject = 'Negotiations with ' + accounts.get(accId).Name, WhatId = accId));
         }
         insert tasks;
     }
