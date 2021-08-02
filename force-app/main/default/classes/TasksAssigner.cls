@@ -3,12 +3,7 @@ public with sharing class TasksAssigner {
 
     }
     @InvocableMethod
-    public static void assignTasksToUser(List<Id> ids){
-        Map<Id, Account> accountsMap = new Map<Id, Account>([
-            SELECT Name FROM Account WHERE Id IN : ids
-        ]);
-        List<Account> accounts = accountsMap.values();
-        
+    public static void assignTasksToUser(List<Id> ids){        
         List<Task> tasks = new List<Task>([
             SELECT WhatId FROM Task WHERE WhatId IN : ids 
         ]);
@@ -22,18 +17,6 @@ public with sharing class TasksAssigner {
                 idIntMap.get(task.WhatId) == null ? 1 : idIntMap.get(task.WhatId) + 1
             );
         }
-        // for(Id id : ids){
-        //     if(idIntMap.get(id) != null){
-        //         if(idIntMap.get(id) > 3){
-        //             Id randomUserId = users.get((Integer)(Math.random()*(users.size() - 1))).Id;
-        //             for(Task task : tasks){
-        //                 if(task.WhatId == id){
-        //                     task.OwnerId = randomUserId;
-        //                 }
-        //             }
-        //         }
-        //     }
-        // }
         Map <Id, Id> userIdsMap = new Map<Id, Id>();
         for(Task task : tasks){
             if(idIntMap.get(task.WhatId) != null){
