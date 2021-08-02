@@ -19,7 +19,7 @@ public with sharing class TasksAssigner {
         }
         Map <Id, Id> userIdsMap = new Map<Id, Id>();
         for(Task task : tasks){
-            if(idIntMap.get(task.WhatId) > 3 && !task.isSet('OwnerId')){
+            if(idIntMap.get(task.WhatId) > 3){
                 userIdsMap.put(
                     task.WhatId, 
                     userIdsMap.get(task.WhatId) == null ? 
