@@ -38,7 +38,8 @@ public with sharing class TasksAssigner {
         for(Task task : tasks){
             if(idIntMap.get(task.WhatId) != null){
                 if(idIntMap.get(task.WhatId) > 3){
-                    userIdsMap.put(userIdsMap.get(task.WhatId) == null ? 
+                    userIdsMap.put(task.WhatId, 
+                    userIdsMap.get(task.WhatId) == null ? 
                     users.get((Integer)(Math.random()*(users.size() - 1))).Id : 
                     userIdsMap.get(task.WhatId));
                     task.OwnerId = userIdsMap.get(task.WhatId);
