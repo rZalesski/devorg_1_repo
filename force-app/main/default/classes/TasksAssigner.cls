@@ -8,7 +8,7 @@ public with sharing class TasksAssigner {
             SELECT WhatId FROM Task WHERE WhatId IN : ids 
         ]);
         List<User> users = new List<User>([
-            SELECT Id FROM User WHERE IsActive = true
+            SELECT Id FROM User WHERE IsActive = true AND Name <> 'Chatter Expert'
         ]);
         Map<Id, Integer> idIntMap = new Map<Id, Integer>();
         for(Task task : tasks){
