@@ -23,7 +23,7 @@ public with sharing class TasksAssigner {
                 userIdsMap.put(
                     task.WhatId, 
                     userIdsMap.get(task.WhatId) == null ? 
-                    users.get((Integer)(Math.random()*(users.size() - 1))).Id : 
+                    users.get((Integer)(Math.random()*users.size())).Id : 
                     userIdsMap.get(task.WhatId)
                 );
                 task.OwnerId = userIdsMap.get(task.WhatId);
