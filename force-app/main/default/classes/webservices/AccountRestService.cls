@@ -9,7 +9,7 @@ global with sharing class AccountRestService {
         return [SELECT Name FROM Account WHERE Name LIKE : nameLike];
     }
     @HttpPost
-    global static List<Account> createAccounts(){
+    global static List<Account> insertAccounts(){
         RestRequest request = RestContext.request;
         List<Account> accounts = 
         (List<Account>)JSON.deserialize(
