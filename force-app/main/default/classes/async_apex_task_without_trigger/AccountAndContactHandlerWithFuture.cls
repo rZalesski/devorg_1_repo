@@ -1,7 +1,4 @@
 public with sharing class AccountAndContactHandlerWithFuture {
-    public AccountAndContactHandlerWithFuture() {
-
-    }
     @future
     public static void updateContacts(){
         Map<Id, Account> accountsMap = new Map<Id, Account>([

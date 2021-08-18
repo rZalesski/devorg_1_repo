@@ -1,7 +1,4 @@
 public with sharing class QueueableAccountAndContactHandler implements Queueable {
-    public QueueableAccountAndContactHandler() {
-
-    }
     public void execute(QueueableContext context){
         Map<Id, Account> accountsMap = new Map<Id, Account>([
             SELECT BillingStreet, BillingCity, BillingState, BillingPostalCode, BillingCountry, BillingLatitude, BillingLongitude

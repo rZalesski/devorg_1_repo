@@ -1,7 +1,4 @@
 public with sharing class AccountTriggerHandlerHelper {
-    public AccountTriggerHandlerHelper() {
-
-    }
     @future
     public static void afterInsertFuture(Set<Id> idsSet){
         List<Task> tasks = [SELECT Id FROM Task WHERE WhatId IN : idsSet];

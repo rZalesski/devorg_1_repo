@@ -11,9 +11,6 @@ public with sharing class AccountTriggerHandler {
         if(Trigger.isExecuting && Trigger.isBefore && Trigger.isUpdate){
             context = 'before_update';
         }
-        if(Trigger.isExecuting && Trigger.isBefore && Trigger.isInsert){
-            context = 'before_insert';
-        }
         if(Trigger.isExecuting && Trigger.isAfter && Trigger.isInsert){
             context = 'after_insert';
         }

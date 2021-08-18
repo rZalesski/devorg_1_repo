@@ -14,18 +14,17 @@ implements Database.Batchable<SObject> {
             WHERE Id IN : accountIds
         ]);
         for(Contact contact : contacts){
-            if(accountsMap.get(contact.AccountId) == null){
-                continue;
+            if(accountsMap.get(contact.AccountId) != null){
+                contact.MailingStreet = accountsMap.get(contact.AccountId).BillingStreet; 
+                contact.MailingCity = accountsMap.get(contact.AccountId).BillingCity; 
+                contact.MailingState = accountsMap.get(contact.AccountId).BillingState;
+                contact.MailingPostalCode = accountsMap.get(contact.AccountId).BillingPostalCode; 
+                contact.MailingCountry = accountsMap.get(contact.AccountId).BillingCountry; 
+                contact.MailingLatitude = accountsMap.get(contact.AccountId).BillingLatitude; 
+                contact.MailingLongitude = accountsMap.get(contact.AccountId).BillingLongitude;
+                contact.Is_Synced__c = true;
+                accountsMap.get(contact.AccountId).Updated_By_Contact__c = true;
             }
-            contact.MailingStreet = accountsMap.get(contact.AccountId).BillingStreet; 
-            contact.MailingCity = accountsMap.get(contact.AccountId).BillingCity; 
-            contact.MailingState = accountsMap.get(contact.AccountId).BillingState;
-            contact.MailingPostalCode = accountsMap.get(contact.AccountId).BillingPostalCode; 
-            contact.MailingCountry = accountsMap.get(contact.AccountId).BillingCountry; 
-            contact.MailingLatitude = accountsMap.get(contact.AccountId).BillingLatitude; 
-            contact.MailingLongitude = accountsMap.get(contact.AccountId).BillingLongitude;
-            contact.Is_Synced__c = true;
-            accountsMap.get(contact.AccountId).Updated_By_Contact__c = true;
         }
         update contacts;
         update accountsMap.values();

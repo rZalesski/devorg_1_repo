@@ -1,7 +1,5 @@
 public with sharing class QueueableAccountTriggerHandlerHelper implements Queueable {
     private List<Id> ids;
-    public QueueableAccountTriggerHandlerHelper() {
-    }
     public QueueableAccountTriggerHandlerHelper(List<id> ids) {
         this.ids = ids; 
     }

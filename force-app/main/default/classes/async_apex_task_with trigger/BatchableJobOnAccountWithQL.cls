@@ -14,12 +14,11 @@ implements Database.Batchable<SObject> {
             SELECT Owner.Name FROM Account WHERE Id IN : accountIds
         ]);
         for(Task task : tasks){
-            if(accountsMap.get(task.WhatId) == null){
-                continue;
+            if(accountsMap.get(task.WhatId) != null){
+                task.Account_Owner__c = accountsMap.get(task.WhatId).Owner.Name;
+                task.Is_Synced__c = true;
+                accountsMap.get(task.WhatId).Updated_By_Task__c = true;
             }
-            task.Account_Owner__c = accountsMap.get(task.WhatId).Owner.Name;
-            task.Is_Synced__c = true;
-            accountsMap.get(task.WhatId).Updated_By_Task__c = true;
         }
         update tasks;
         update accountsMap.values();
