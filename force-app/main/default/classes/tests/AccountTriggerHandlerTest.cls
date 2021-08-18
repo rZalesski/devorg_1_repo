@@ -50,13 +50,13 @@ public class AccountTriggerHandlerTest {
     }
     @isTest
     public static void testAfterInsert(){
-    Test.startTest();
-    TestDataFactory.ACCOUNTF.createAccounts(recordsNum, true);
-    Test.stopTest();
-    List<Task> tasks = [SELECT Is_Synced__c FROM Task];
-    System.assertEquals(recordsNum * 2, tasks.size());
-    for(Task task : tasks){
-        System.assertEquals(task.Is_Synced__c, false);
-    }
+        Test.startTest();
+        TestDataFactory.ACCOUNTF.createAccounts(recordsNum, true);
+        Test.stopTest();
+        List<Task> tasks = [SELECT Is_Synced__c FROM Task];
+        System.assertEquals(recordsNum * 2, tasks.size());
+        for(Task task : tasks){
+            System.assertEquals(task.Is_Synced__c, false);
+        }
     }
 }

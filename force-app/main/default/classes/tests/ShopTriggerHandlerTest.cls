@@ -8,6 +8,7 @@ public class ShopTriggerHandlerTest {
     @isTest
     public static void testBeforeUpdate(){
         List<Shop__c> shops = [SELECT Name FROM Shop__c];
+        
         Test.startTest();
         update shops;
         Test.stopTest();
@@ -18,8 +19,6 @@ public class ShopTriggerHandlerTest {
             WHERE Name LIKE '%(old)%'
         ];
         System.assertEquals(recordsNum, updatedShops.size());
-        
-
     }
     @isTest
     public static void testBeforeInsert(){
