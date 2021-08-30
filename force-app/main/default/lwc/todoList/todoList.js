@@ -1,6 +1,8 @@
-import { LightningElement } from 'lwc';
+import { LightningElement, track } from 'lwc';
 export default class TodoList extends LightningElement {
+    @track
     todos = '';
+    @track
     selectedTodo = '';
     handleSelect(event){
         this.selectedTodo = this.todos.find(

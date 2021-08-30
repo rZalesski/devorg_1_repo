@@ -1,12 +1,19 @@
 <template>
     <lightning-card>
-    <c-todo-search-bar onrefreshsearch={handleRefresh}></c-todo-search-bar>
-    <template if:true={todos}>
-        <template for:each={todos} for:item="todo">
-            <c-todo-item todo={todo} key={todo.Id} onselectitem={handleSelect}>
-            </c-todo-item>
-        </template>
-    </template>
-    <c-todo-details todo={selectedTodo}></c-todo-details>
+        <lightning-layout class="slds-var-m-around_medium slds-box">
+            <lightning-layout-item>
+                <c-todo-search-bar onrefreshsearch={handleRefresh}></c-todo-search-bar>
+                <template if:true={todos}>
+                    <template for:each={todos} for:item="todo">
+                    <c-todo-item 
+                    todo={todo} key={todo.Id} onselectitem={handleSelect}>
+                    </c-todo-item>
+                </template>
+                </template>
+            </lightning-layout-item>
+            <lightning-layout-item class="slds-var-m-left_medium">
+                <c-todo-details todo={selectedTodo}></c-todo-details>
+            </lightning-layout-item>
+        </lightning-layout>
     </lightning-card>
 </template>
