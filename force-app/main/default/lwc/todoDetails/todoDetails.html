@@ -1,0 +1,24 @@
+<template>
+<lightning-card>
+    <lightning-layout vertical-align="center">
+        <lightning-layout-item>
+              <img src={todo.Image_URL__c} alt="Todo-image">
+        </lightning-layout-item>
+        <lightning-layout-item>
+            {todo.Creation_Date__c}
+        </lightning-layout-item>
+        <lightning-layout-item>
+            {todo.Is_Done__c}
+        </lightning-layout-item>
+        <lightning-layout-item>
+            {todo.Priority__c}
+        </lightning-layout-item>
+        <lightning-layout-item>
+            {todo.Category__c}
+        </lightning-layout-item>
+        <lightning-layout-item>
+            {todo.Desctiption__c}
+        </lightning-layout-item>
+    </lightning-layout>
+</lightning-card>
+</template>

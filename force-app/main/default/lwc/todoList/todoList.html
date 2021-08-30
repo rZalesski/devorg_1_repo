@@ -1,0 +1,12 @@
+<template>
+    <lightning-card>
+    <c-todo-search-bar onrefreshsearch={handleRefresh}></c-todo-search-bar>
+    <template if:true={todos}>
+        <template for:each={todos} for:item="todo">
+            <c-todo-item todo={todo} key={todo.Id} onselectitem={handleSelect}>
+            </c-todo-item>
+        </template>
+    </template>
+    <c-todo-details todo={selectedTodo}></c-todo-details>
+    </lightning-card>
+</template>
