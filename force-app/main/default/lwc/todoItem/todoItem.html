@@ -1,12 +1,20 @@
 <template>
     <lightning-card>
-    <a href="#" onclick={handleClick}> 
-        <lightning-layout vertical-align="center" 
-        class="slds-box">
-            <lightning-layout-item label="Name">
-                {todo.Name}
-            </lightning-layout-item>
-        </lightning-layout>
-    </a>
+    
+    <lightning-layout class="slds-box">
+    <lightning-layout-item>
+        <a href="#" onclick={handleClick}> 
+            {todo.Name}
+        </a>
+    </lightning-layout-item>
+    <lightning-layout-item alignment-bump="left">
+        <lightning-button-icon icon-name="utility:delete" onclick={deleteTodo}>
+        </lightning-button-icon>
+    </lightning-layout-item>
+    <lightning-layout-item>
+        <lightning-button-icon icon-name="utility:edit" onclick={goToEdit}>
+        </lightning-button-icon>
+    </lightning-layout-item>
+    </lightning-layout>
     </lightning-card>
 </template>

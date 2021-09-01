@@ -10,7 +10,6 @@ export default class TodoSearchBar extends LightningElement {
             this.dispatchEvent(new CustomEvent('refreshsearch', {
                 detail : [...data]
             }));
-            console.log(data);
         }
     }
     handleKeyChange(event){

@@ -2,7 +2,9 @@
 <LightningMessageChannel xmlns="http://soap.sforce.com/2006/04/metadata">
     <masterLabel>RecordSelected</masterLabel>
     <isExposed>true</isExposed>
+    <description>Message Channel to pass a record Id</description>
     <lightningMessageFields>
-        <fieldName>todoName</fieldName>
+        <fieldName>selectedTodo</fieldName>
+        <description>This is the record Id that changed</description>
     </lightningMessageFields>
 </LightningMessageChannel>
