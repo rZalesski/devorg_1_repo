@@ -1,0 +1,27 @@
+<template>
+    <lightning-card>
+        <lightning-layout class="slds-var-m-around_small">
+            <lightning-layout-item>
+                <p class="slds-box"><b>PAGINATED TODOS</b></p>
+                <div class="slds-box">
+                    <template for:each={todosFiltered} for:item="todo">
+                        <p key={todo.Id}>Name: {todo.Name}</p>
+                    </template>
+                </div>  
+            </lightning-layout-item>
+        </lightning-layout>
+        <lightning-layout class="slds-var-m-around_small">
+            <template if:true={hasPrevious}>
+                <lightning-layout-item>
+                    <lightning-button label="prev." onclick={handlePrevious}></lightning-button>
+                </lightning-layout-item>
+            </template>
+            <template if:true={hasNext}>
+                <lightning-layout-item alignment-bump="left">
+                    <lightning-button label="next" onclick={handleNext}></lightning-button>
+                </lightning-layout-item>
+            </template>
+        </lightning-layout>
+    </lightning-card>
+    
+</template>

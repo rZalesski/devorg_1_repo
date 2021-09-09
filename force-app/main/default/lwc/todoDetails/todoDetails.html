@@ -19,6 +19,13 @@
             <lightning-output-field field-name="Description__c">
             </lightning-output-field>
         </lightning-record-view-form>
+        <template if:true={todo.SubTodos__r}>
+        <div class="slds-box"><b>SUBTODOS</b>
+        <template for:each={todo.SubTodos__r} for:item="stodo">
+            <li key={stodo.Id}>{stodo.Name}</li>
+        </template>
+        </div>
+        </template>
         </lightning-layout-item>
     </template>
     <template if:false={todo}>

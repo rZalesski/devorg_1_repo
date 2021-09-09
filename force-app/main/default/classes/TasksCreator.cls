@@ -8,6 +8,7 @@ public with sharing class TasksCreator {
         for(Id accId : ids){
             tasks.add(new Task(Subject = 'Negotiations with ' + accounts.get(accId).Name, WhatId = accId));
         }
+        
         insert tasks;
     }
 }
