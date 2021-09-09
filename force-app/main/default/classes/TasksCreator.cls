@@ -1,7 +1,4 @@
 public with sharing class TasksCreator {
-    public TasksCreator() {
-
-    }
     @InvocableMethod
     public static void createNewTasks(List<Id> ids){
         Map<Id, Account> accounts = new Map<Id, Account>([
@@ -11,6 +8,7 @@ public with sharing class TasksCreator {
         for(Id accId : ids){
             tasks.add(new Task(Subject = 'Negotiations with ' + accounts.get(accId).Name, WhatId = accId));
         }
+        
         insert tasks;
     }
 }

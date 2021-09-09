@@ -1,0 +1,38 @@
+<template>
+<lightning-card>
+    <lightning-layout vertical-align="center" 
+    class="slds-box slds-var-m-around_small">
+    <template if:true={todo}>
+        <lightning-layout-item>   
+        <lightning-record-view-form record-id={todo.Id} object-api-name="Todo__c">
+            <img src={todo.Image_URL__c} alt="[no image]">
+            <lightning-output-field field-name="Name">
+            </lightning-output-field>
+            <lightning-output-field field-name="Creation_Date__c">
+            </lightning-output-field>
+            <lightning-output-field field-name="Is_Done__c">
+            </lightning-output-field>
+            <lightning-output-field field-name="Category__c">
+            </lightning-output-field>
+            <lightning-output-field field-name="Priority__c">
+            </lightning-output-field>
+            <lightning-output-field field-name="Description__c">
+            </lightning-output-field>
+        </lightning-record-view-form>
+        <template if:true={todo.SubTodos__r}>
+        <div class="slds-box"><b>SUBTODOS</b>
+        <template for:each={todo.SubTodos__r} for:item="stodo">
+            <li key={stodo.Id}>{stodo.Name}</li>
+        </template>
+        </div>
+        </template>
+        </lightning-layout-item>
+    </template>
+    <template if:false={todo}>
+        <lightning-layout-item>
+            Select any Todo to see details
+        </lightning-layout-item>
+    </template>
+    </lightning-layout>
+</lightning-card>
+</template>

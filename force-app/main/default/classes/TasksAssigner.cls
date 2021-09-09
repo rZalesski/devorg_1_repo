@@ -1,7 +1,4 @@
 public with sharing class TasksAssigner {
-    public TasksAssigner() {
-
-    }
     @InvocableMethod
     public static void assignTasksToUser(List<Id> ids){        
         List<Task> tasks = new List<Task>([
